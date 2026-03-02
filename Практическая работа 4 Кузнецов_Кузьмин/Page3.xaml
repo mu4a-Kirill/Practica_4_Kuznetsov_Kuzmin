@@ -1,14 +1,49 @@
 ﻿<Page x:Class="Практическая_работа_4_Кузнецов_Кузьмин.Page3"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Практическая_работа_4_Кузнецов_Кузьмин"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page3">
+      xmlns:oxy="http://oxyplot.org/wpf"
+      Title="Page3" Height="550" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-    <Grid>
-        
+        <Image Grid.Row="0" Grid.ColumnSpan="2" Source="C:\Users\bosss\source\repos\Практическая работа 4 Кузнецов_Кузьмин\Практическая работа 4 Кузнецов_Кузьмин\Images\Page3.png" MaxHeight="120" Margin="5" Stretch="Uniform"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="X0:" Margin="5" VerticalAlignment="Center"/>
+        <TextBox x:Name="X0TextBox" Grid.Row="1" Grid.Column="1" Margin="5" Padding="3" Text="0.1"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Xk:" Margin="5" VerticalAlignment="Center"/>
+        <TextBox x:Name="XkTextBox" Grid.Row="2" Grid.Column="1" Margin="5" Padding="3" Text="5"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Dx:" Margin="5" VerticalAlignment="Center"/>
+        <TextBox x:Name="DxTextBox" Grid.Row="3" Grid.Column="1" Margin="5" Padding="3" Text="0.2"/>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="d:" Margin="5" VerticalAlignment="Center"/>
+        <TextBox x:Name="DTextBox" Grid.Row="4" Grid.Column="1" Margin="5" Padding="3" Text="1"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Результаты:" Margin="5" VerticalAlignment="Top"/>
+        <TextBox x:Name="ResultTextBox" Grid.Row="5" Grid.Column="1" Margin="5" Padding="3" 
+                 AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" 
+                 IsReadOnly="True" Background="LightGray" Height="150"/>
+
+        <oxy:PlotView x:Name="FunctionPlot" Grid.Row="6" Grid.ColumnSpan="2" Margin="5" Height="200"/>
+
+        <StackPanel Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button x:Name="CalculateButton" Content="Вычислить" Width="90" Height="30" Margin="5" Click="CalculateButton_Click"/>
+            <Button x:Name="ClearButton" Content="Очистить" Width="90" Height="30" Margin="5" Click="ClearButton_Click"/>
+            <Button x:Name="BackButton" Content="← Назад" Width="90" Height="30" Margin="5" Click="BackButton_Click"/>
+            <Button x:Name="NextButton" Content="Далее →" Width="90" Height="30" Margin="5" Click="NextButton_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

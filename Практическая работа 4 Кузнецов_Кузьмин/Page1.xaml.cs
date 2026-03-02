@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Globalization;
 
 namespace Практическая_работа_4_Кузнецов_Кузьмин
 {
@@ -21,14 +11,25 @@ namespace Практическая_работа_4_Кузнецов_Кузьми�
         {
             InitializeComponent();
         }
+        private double ParseDouble(string text)
+        {
+            string s = text.Replace(',', '.');
+            return double.Parse(s, CultureInfo.InvariantCulture);
+        }
+
+        private bool TryParseDouble(string text, out double result)
+        {
+            string s = text.Replace(',', '.');
+            return double.TryParse(s, NumberStyles.Any, CultureInfo.InvariantCulture, out result);
+        }
 
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                double x = double.Parse(XTextBox.Text);
-                double y = double.Parse(YTextBox.Text);
-                double z = double.Parse(ZTextBox.Text);
+                double x = ParseDouble(XTextBox.Text);
+                double y = ParseDouble(YTextBox.Text);
+                double z = ParseDouble(ZTextBox.Text);
 
                 if (z < -1 || z > 1)
                 {
@@ -54,7 +55,7 @@ namespace Практическая_работа_4_Кузнецов_Кузьми�
             }
             catch (FormatException)
             {
-                MessageBox.Show("Пожалуйста, введите корректные числа.", "Ошибка ввода");
+                MessageBox.Show("Пожалуйста, введите корректные числа (используйте . или ,).", "Ошибка ввода");
             }
             catch (Exception ex)
             {
@@ -88,7 +89,7 @@ namespace Практическая_работа_4_Кузнецов_Кузьми�
         private string GetYToolTip()
         {
             double x, z;
-            if (!double.TryParse(XTextBox.Text, out x) || !double.TryParse(ZTextBox.Text, out z))
+            if (!TryParseDouble(XTextBox.Text, out x) || !TryParseDouble(ZTextBox.Text, out z))
                 return "Сначала введите корректные значения X и Z.";
 
             if (z < -1 || z > 1)
@@ -108,11 +109,11 @@ namespace Практическая_работа_4_Кузнецов_Кузьми�
         private string GetZToolTip()
         {
             double x, y;
-            if (!double.TryParse(XTextBox.Text, out x) || !double.TryParse(YTextBox.Text, out y))
+            if (!TryParseDouble(XTextBox.Text, out x) || !TryParseDouble(YTextBox.Text, out y))
                 return "Сначала введите корректные значения X и Y.";
 
             double diff = Math.Abs(x - y);
-            double maxArcsin2 = Math.Pow(Math.PI / 2, 2); // (π/2)^2 ≈ 2.467
+            double maxArcsin2 = Math.Pow(Math.PI / 2, 2);
 
             if (diff > maxArcsin2)
                 return "Невозможно подобрать Z, так как |x-y| слишком велико. Уменьшите |x-y|.";

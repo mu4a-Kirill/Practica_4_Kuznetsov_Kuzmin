@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Globalization;
 
 namespace Практическая_работа_4_Кузнецов_Кузьмин
 {
@@ -20,6 +10,12 @@ namespace Практическая_работа_4_Кузнецов_Кузьми�
         public Page2()
         {
             InitializeComponent();
+        }
+
+        private double ParseDouble(string text)
+        {
+            string s = text.Replace(',', '.');
+            return double.Parse(s, CultureInfo.InvariantCulture);
         }
 
         private double GetF(double x)
@@ -36,8 +32,8 @@ namespace Практическая_работа_4_Кузнецов_Кузьми�
         {
             try
             {
-                double x = double.Parse(XTextBox.Text);
-                double b = double.Parse(BTextBox.Text);
+                double x = ParseDouble(XTextBox.Text);
+                double b = ParseDouble(BTextBox.Text);
 
                 double f = GetF(x);
                 double xb = x * b;
@@ -61,7 +57,7 @@ namespace Практическая_работа_4_Кузнецов_Кузьми�
             }
             catch (FormatException)
             {
-                MessageBox.Show("Пожалуйста, введите корректные числа.", "Ошибка ввода");
+                MessageBox.Show("Пожалуйста, введите корректные числа (используйте . или ,).", "Ошибка ввода");
             }
             catch (Exception ex)
             {
