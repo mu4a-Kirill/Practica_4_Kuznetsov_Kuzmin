@@ -19,10 +19,11 @@
         <Image Grid.Row="0" Grid.ColumnSpan="2" Source="C:\Users\bosss\source\repos\Практическая работа 4 Кузнецов_Кузьмин\Практическая работа 4 Кузнецов_Кузьмин\Images\Page2.png" MaxHeight="150" Margin="5" Stretch="Uniform"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="X:" Margin="5" VerticalAlignment="Center"/>
-        <TextBox x:Name="XTextBox" Grid.Row="1" Grid.Column="1" Margin="5" Padding="3"/>
+        <TextBox x:Name="XTextBox" Grid.Row="1" Grid.Column="1" Margin="5" Padding="3" ToolTip="Введите любое число" ToolTipService.InitialShowDelay="0"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="B:" Margin="5" VerticalAlignment="Center"/>
-        <TextBox x:Name="BTextBox" Grid.Row="2" Grid.Column="1" Margin="5" Padding="3"/>
+        <TextBox x:Name="BTextBox" Grid.Row="2" Grid.Column="1" Margin="5" Padding="3" ToolTip="Введите любое число" ToolTipService.InitialShowDelay="0"/>
+
 
         <Label Grid.Row="3" Grid.Column="0" Content="Функция f(x):" Margin="5" VerticalAlignment="Center"/>
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="5">

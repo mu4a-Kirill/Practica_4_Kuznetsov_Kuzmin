@@ -15,15 +15,21 @@ using System.Windows.Shapes;
 
 namespace Практическая_работа_4_Кузнецов_Кузьмин
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
             MainFrame.Navigate(new Page1());
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы действительно хотите выйти?", "Подтверждение выхода", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

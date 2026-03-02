@@ -2,7 +2,7 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:oxy="http://oxyplot.org/wpf"
-      Title="Page3" Height="600" Width="800">
+      Title="Page3" Height="700" Width="800">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -10,8 +10,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -22,16 +22,24 @@
         <Image Grid.Row="0" Grid.ColumnSpan="2" Source="C:\Users\bosss\source\repos\Практическая работа 4 Кузнецов_Кузьмин\Практическая работа 4 Кузнецов_Кузьмин\Images\Page3.png" MaxHeight="120" Margin="5" Stretch="Uniform"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="X0:" Margin="5" VerticalAlignment="Center"/>
-        <TextBox x:Name="X0TextBox" Grid.Row="1" Grid.Column="1" Margin="5" Padding="3" Text="0.1" TextChanged="InputTextBox_TextChanged"/>
+        <TextBox x:Name="X0TextBox" Grid.Row="1" Grid.Column="1" Margin="5" Padding="3" Text="0.1" 
+                 TextChanged="InputTextBox_TextChanged" 
+                 ToolTip="Начало отрезка" ToolTipService.InitialShowDelay="0"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="Xk:" Margin="5" VerticalAlignment="Center"/>
-        <TextBox x:Name="XkTextBox" Grid.Row="2" Grid.Column="1" Margin="5" Padding="3" Text="5" TextChanged="InputTextBox_TextChanged"/>
+        <TextBox x:Name="XkTextBox" Grid.Row="2" Grid.Column="1" Margin="5" Padding="3" Text="5" 
+                 TextChanged="InputTextBox_TextChanged" 
+                 ToolTip="Конец отрезка" ToolTipService.InitialShowDelay="0"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="Dx:" Margin="5" VerticalAlignment="Center"/>
-        <TextBox x:Name="DxTextBox" Grid.Row="3" Grid.Column="1" Margin="5" Padding="3" Text="0.2" TextChanged="InputTextBox_TextChanged"/>
+        <TextBox x:Name="DxTextBox" Grid.Row="3" Grid.Column="1" Margin="5" Padding="3" Text="0.2" 
+                 TextChanged="InputTextBox_TextChanged" 
+                 ToolTip="Шаг" ToolTipService.InitialShowDelay="0"/>
 
         <Label Grid.Row="4" Grid.Column="0" Content="d:" Margin="5" VerticalAlignment="Center"/>
-        <TextBox x:Name="DTextBox" Grid.Row="4" Grid.Column="1" Margin="5" Padding="3" Text="1" TextChanged="InputTextBox_TextChanged"/>
+        <TextBox x:Name="DTextBox" Grid.Row="4" Grid.Column="1" Margin="5" Padding="3" Text="1" 
+                 TextChanged="InputTextBox_TextChanged" 
+                 ToolTip="Параметр d" ToolTipService.InitialShowDelay="0"/>
 
         <Label Grid.Row="5" Grid.Column="0" Content="Результаты:" Margin="5" VerticalAlignment="Top"/>
         <TextBox x:Name="ResultTextBox" Grid.Row="5" Grid.Column="1" Margin="5" Padding="3" 
